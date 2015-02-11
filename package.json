@@ -1,0 +1,34 @@
+{
+  "name": "tessel-tank-measurement",
+  "version": "1.0.0",
+  "description": "A simple IoT demonstration that uses the Tessel development board along with the Tessel Bluetooth LE module and an ultrasonic distance sensor to measure the amount of liquid in a tank.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchdenny/tessel-tank-measurement.git"
+  },
+  "keywords": [
+    "tessel",
+    "grove",
+    "ultrasonic",
+    "ranger"
+  ],
+  "author": "Mitch Denny <mitch@mitchdenny.com> (http://mitchdenny.com/)",
+  "license": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/mitchdenny/tessel-tank-measurement/issues"
+  },
+  "homepage": "https://github.com/mitchdenny/tessel-tank-measurement",
+  "dependencies": {
+    "ble-ble113a": "^0.1.12",
+    "tessel-sen10737p": "^1.0.3"
+  }
+}
