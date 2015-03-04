@@ -1,69 +1,35 @@
-function Monitor(controller, ranger) {
+function Monitor(publisher, ranger) {
   var self = this;
-  self.controller = controller;
+  self.publisher = publisher;
   self.ranger = ranger;
   self.isStarted = false;
-  self.isReady = false;
-  self.measureIntervaxl = null;
+  self.measureInterval = null;
 
-  self.controller.on('ready', function (err) {
-    console.log('ready');
-    self.isReady = true;
+  self.measure = function() {
+    self.ranger.getDistance(function (err, distance) {
+      if (err) {
+        console.log(err);
+        return;
+      }
 
-    if (self.isStarted) {
-      self.startInternal();
-    }
-  });
-
-  self.controller.on('connect', function () {
-    console.log('connect');
-    self.measureInterval = setInterval(function () {
-      ranger.getDistance(function(err, distance) {
-        if (err) {
-          console.log(err);
-          return;
-        }
-
-        console.log(distance);
-        controller.writeLocalValue(0, new Buffer(distance), function (err) {
-          console.log(err);
-          return;
-        });
-      });
-    }, 1000);
-  });
-
-  self.controller.on('disconnect', function () {
-    console.log('disconnect');
-    clearInterval(self.measureInterval);
-
-    if (self.isStarted) {
-      self.controller.startAdvertising();
-    }
-  });
-
-  self.startInternal = function() {
-    self.controller.startAdvertising();
-  };
-
-  self.stopInternal = function() {
-    self.controller.stopAdvertising();
-  };
+      self.publisher.publishDistance(distance);
+    });
+  }
 
   return {
     start: function() {
-      self.isStarted = true;
-
-      if (self.isReady) {
-        self.startInternal();
+      if (self.isStarted != true) {
+        self.measureInterval = setInterval(self.measure, 1000);
       }
+
+      self.isStarted = true;
     },
     stop: function() {
-      self.isStarted = false;
-
-      if (self.isReady) {
-        self.stopInternal();
+      if (self.isStarted) {
+        clearInterval(self.measureInterval);
       }
+
+      self.isStarted = false;
     }
   };
 }
