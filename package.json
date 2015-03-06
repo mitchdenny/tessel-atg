@@ -2,7 +2,7 @@
   "name": "tessel-tank-measurement",
   "version": "1.0.0",
   "description": "A simple IoT demonstration that uses the Tessel development board along with the Tessel Bluetooth LE module and an ultrasonic distance sensor to measure the amount of liquid in a tank.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
