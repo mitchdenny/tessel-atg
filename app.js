@@ -13,7 +13,7 @@ var atg = require('./lib/monitor');
 var namespace = 'tessel-atg';
 var eventHub = 'tessel-atg-tenant1';
 var device = 'tessel-atg-tenant1-device1';
-var sharedAccessSignature = 'SharedAccessSignature sr=https%3A%2F%2Ftessel-atg.servicebus.windows.net%2Ftessel-atg-tenant1%2Fpublishers%2Ftessel-atg-tenant1-device1%2Fmessages&sig=aEd1S7NiRQaDPq5cxYplG9lCKYgDuNa4HYmSYQoe4UE%3D&se=1457175175740&skn=tessel-atg-tenant1-policy1';
+var sharedAccessSignature = 'SharedAccessSignature sr=https%3A%2F%2Ftessel-atg.servicebus.windows.net%2Ftessel-atg-tenant1%2Fpublishers%2Ftessel-atg-tenant1-device1%2Fmessages&sig=EPKqXdzcCzzgCJRAome1kdbGxbqAtcZyaT2oKP3f7UY%3D&se=1454612852&skn=tessel-atg-tenant1-policy1';
 var publisher = publishers.createEventHubPublisher(namespace, eventHub, device, sharedAccessSignature);
 
 // Get the ultrasonic ranger up and running.
