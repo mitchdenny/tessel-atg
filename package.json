@@ -30,6 +30,7 @@
   "dependencies": {
     "ble-ble113a": "^0.1.12",
     "bleadvertise": "^0.1.1",
+    "nopt": "^3.0.1",
     "tessel-sen10737p": "^1.0.3"
   }
 }
